@@ -1,86 +1,190 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Brand Design Leadership Framework</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:        #ffffff;
-      --bg2:       #f5f4f0;
-      --text:      #1a1a18;
-      --text2:     #6b6a64;
-      --text3:     #9c9a92;
-      --border:    rgba(0,0,0,0.12);
-      --radius-md: 8px;
-      --radius-lg: 12px;
+      --bg:        #0e0e0c;
+      --bg2:       #161614;
+      --bg3:       #1e1e1b;
+      --text:      #e8e5dc;
+      --text2:     #8c8a82;
+      --text3:     #5c5a54;
+      --border:    rgba(255,255,255,0.08);
+      --border2:   rgba(255,255,255,0.14);
+      --gold:      #c9a84c;
+      --gold2:     #e8c97a;
+      --gold-bg:   rgba(201,168,76,0.08);
     }
 
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg:     #1a1a18;
-        --bg2:    #242420;
-        --text:   #e8e6de;
-        --text2:  #9c9a92;
-        --text3:  #6b6a64;
-        --border: rgba(255,255,255,0.1);
-      }
-    }
+    html { scroll-behavior: smooth; }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-family: 'DM Sans', sans-serif;
       background: var(--bg);
       color: var(--text);
       min-height: 100vh;
-      padding: 2rem 1rem 4rem;
     }
 
-    .container {
-      max-width: 680px;
+    /* ─── HERO ─── */
+    .hero {
+      padding: 4rem 2rem 3rem;
+      max-width: 760px;
       margin: 0 auto;
-    }
-
-    header {
-      margin-bottom: 2.5rem;
-      padding-bottom: 1.5rem;
       border-bottom: 0.5px solid var(--border);
     }
 
-    header h1 {
-      font-size: 22px;
+    .hero-eyebrow {
+      font-size: 11px;
       font-weight: 500;
-      color: var(--text);
-      margin-bottom: 6px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
     }
 
-    header p {
-      font-size: 14px;
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 400;
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold2);
+    }
+
+    .hero-sub {
+      font-size: 15px;
+      color: var(--text2);
+      line-height: 1.7;
+      max-width: 520px;
+    }
+
+    /* ─── CHEAT SHEET ─── */
+    .cheat-sheet {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 0.5px;
+      background: var(--border2);
+    }
+
+    .cheat-banner {
+      background: var(--gold-bg);
+      border: 0.5px solid rgba(201,168,76,0.25);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .cheat-banner p {
+      font-size: 13px;
       color: var(--text2);
       line-height: 1.6;
     }
 
-    /* Steps */
-    .steps { display: flex; flex-direction: column; }
+    .cheat-banner strong {
+      color: var(--gold2);
+      font-weight: 500;
+    }
+
+    .cheat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+    }
+
+    .cheat-card {
+      background: var(--bg2);
+      border: 0.5px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem;
+      transition: border-color 0.2s;
+    }
+
+    .cheat-card:hover { border-color: var(--border2); }
+
+    .cheat-num {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: var(--text3);
+      margin-bottom: 4px;
+    }
+
+    .cheat-card h4 {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .cheat-card p {
+      font-size: 11px;
+      color: var(--text2);
+      line-height: 1.55;
+    }
+
+    .cheat-card .cheat-q {
+      font-size: 11px;
+      color: var(--gold);
+      margin-top: 6px;
+      font-style: italic;
+    }
+
+    /* ─── STEPS ─── */
+    .steps-section {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem;
+      border-bottom: 0.5px solid var(--border);
+    }
 
     .step {
       display: flex;
       gap: 0;
-      cursor: pointer;
+      margin-bottom: 0;
     }
 
     .step-left {
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 48px;
+      width: 52px;
       flex-shrink: 0;
     }
 
     .step-dot {
-      width: 36px;
-      height: 36px;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -90,49 +194,53 @@
       flex-shrink: 0;
       border: 0.5px solid;
       transition: transform 0.15s;
+      cursor: pointer;
       user-select: none;
     }
 
-    .step:hover .step-dot { transform: scale(1.08); }
-    .step.open .step-dot  { transform: scale(1.08); }
+    .step:hover .step-dot { transform: scale(1.06); }
+    .step.open .step-dot  { transform: scale(1.06); }
 
     .step-line {
-      width: 1.5px;
+      width: 1px;
       flex: 1;
-      min-height: 16px;
+      min-height: 20px;
       background: var(--border);
     }
 
     .step:last-child .step-line { display: none; }
 
     .step-content {
-      padding: 0 0 2rem 1rem;
+      padding: 0 0 2.5rem 1.25rem;
       flex: 1;
+      cursor: pointer;
     }
 
-    .step-label {
-      font-size: 11px;
+    .step-phase {
+      font-size: 10px;
       font-weight: 500;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       margin-bottom: 4px;
     }
 
     .step-title {
-      font-size: 15px;
-      font-weight: 500;
+      font-family: 'DM Serif Display', serif;
+      font-size: 19px;
+      font-weight: 400;
       color: var(--text);
       margin-bottom: 6px;
+      line-height: 1.3;
     }
 
     .step-desc {
       font-size: 13px;
       color: var(--text2);
       line-height: 1.65;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
-    .step-tags {
+    .tags {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
@@ -141,305 +249,669 @@
 
     .tag {
       font-size: 11px;
-      padding: 3px 8px;
+      padding: 4px 10px;
       border-radius: 20px;
       border: 0.5px solid;
+      cursor: pointer;
+      transition: opacity 0.15s, transform 0.1s;
+      user-select: none;
     }
 
-    .detail {
+    .tag:hover { opacity: 0.8; transform: scale(0.97); }
+
+    /* Tag modal */
+    .tag-modal-overlay {
       display: none;
-      margin-top: 10px;
-      border-left: 2px solid;
-      padding: 10px 12px;
-      border-radius: 0 6px 6px 0;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
     }
 
-    .detail p {
-      font-size: 12px;
-      line-height: 1.65;
-      color: var(--text2);
+    .tag-modal-overlay.open { display: flex; }
+
+    .tag-modal {
+      background: var(--bg2);
+      border: 0.5px solid var(--border2);
+      border-radius: 16px;
+      padding: 2rem;
+      max-width: 520px;
+      width: 100%;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+
+    .tag-modal h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--text);
       margin-bottom: 6px;
     }
 
-    .detail p:last-child { margin: 0; }
+    .tag-modal .tag-def {
+      font-size: 14px;
+      color: var(--text2);
+      line-height: 1.65;
+      margin-bottom: 1.25rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 0.5px solid var(--border);
+    }
 
-    .detail strong { font-weight: 500; color: var(--text); }
+    .tag-modal h4 {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
 
-    .step.open .detail { display: block; }
+    .example-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+    .example-list li {
+      background: var(--bg3);
+      border-radius: 8px;
+      padding: 12px 14px;
+    }
+
+    .example-list li strong {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 3px;
+    }
+
+    .example-list li span {
+      font-size: 12px;
+      color: var(--text2);
+      line-height: 1.55;
+    }
+
+    .modal-close {
+      display: block;
+      margin-top: 1.25rem;
+      width: 100%;
+      padding: 10px;
+      background: transparent;
+      border: 0.5px solid var(--border2);
+      border-radius: 8px;
+      color: var(--text2);
+      font-size: 13px;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      transition: background 0.15s;
+    }
+
+    .modal-close:hover { background: var(--bg3); }
+
+    /* Step expand */
+    .step-expand {
+      display: none;
+      margin-top: 8px;
+      background: var(--bg2);
+      border: 0.5px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+    }
+
+    .step.open .step-expand { display: block; }
+
+    .step-expand p {
+      font-size: 13px;
+      color: var(--text2);
+      line-height: 1.65;
+      margin-bottom: 8px;
+    }
+
+    .step-expand p:last-child { margin: 0; }
+    .step-expand strong { font-weight: 500; color: var(--text); }
 
     .toggle-hint {
       font-size: 11px;
       color: var(--text3);
       margin-top: 6px;
-      transition: opacity 0.2s;
     }
 
-    .step.open .toggle-hint { opacity: 0; height: 0; overflow: hidden; }
+    .step.open .toggle-hint { display: none; }
 
-    /* Phase color tokens */
-    /* p1: Purple */
-    .p1 .step-dot  { background:#EEEDFE; color:#3C3489; border-color:#AFA9EC; }
-    .p1 .step-label{ color:#534AB7; }
-    .p1 .tag       { background:#EEEDFE; color:#3C3489; border-color:#AFA9EC; }
-    .p1 .detail    { border-color:#AFA9EC; background:#EEEDFE; }
+    /* ─── PHASE COLORS ─── */
+    .p1 .step-dot  { background:#1a1636; color:#a89ee0; border-color:#534AB7; }
+    .p1 .step-phase{ color:#7b72cc; }
+    .p1 .tag       { background:#1a1636; color:#a89ee0; border-color:#534AB7; }
 
-    /* p2: Teal */
-    .p2 .step-dot  { background:#E1F5EE; color:#085041; border-color:#5DCAA5; }
-    .p2 .step-label{ color:#0F6E56; }
-    .p2 .tag       { background:#E1F5EE; color:#085041; border-color:#5DCAA5; }
-    .p2 .detail    { border-color:#5DCAA5; background:#E1F5EE; }
+    .p2 .step-dot  { background:#0b2420; color:#6ecfb3; border-color:#0F6E56; }
+    .p2 .step-phase{ color:#1a9e7a; }
+    .p2 .tag       { background:#0b2420; color:#6ecfb3; border-color:#0F6E56; }
 
-    /* p3: Coral */
-    .p3 .step-dot  { background:#FAECE7; color:#712B13; border-color:#F0997B; }
-    .p3 .step-label{ color:#993C1D; }
-    .p3 .tag       { background:#FAECE7; color:#712B13; border-color:#F0997B; }
-    .p3 .detail    { border-color:#F0997B; background:#FAECE7; }
+    .p3 .step-dot  { background:#2a1208; color:#e8a080; border-color:#993C1D; }
+    .p3 .step-phase{ color:#c85530; }
+    .p3 .tag       { background:#2a1208; color:#e8a080; border-color:#993C1D; }
 
-    /* p4: Blue */
-    .p4 .step-dot  { background:#E6F1FB; color:#0C447C; border-color:#85B7EB; }
-    .p4 .step-label{ color:#185FA5; }
-    .p4 .tag       { background:#E6F1FB; color:#0C447C; border-color:#85B7EB; }
-    .p4 .detail    { border-color:#85B7EB; background:#E6F1FB; }
+    .p4 .step-dot  { background:#051a32; color:#7ab8e8; border-color:#185FA5; }
+    .p4 .step-phase{ color:#3888cc; }
+    .p4 .tag       { background:#051a32; color:#7ab8e8; border-color:#185FA5; }
 
-    /* p5: Pink */
-    .p5 .step-dot  { background:#FBEAF0; color:#72243E; border-color:#ED93B1; }
-    .p5 .step-label{ color:#993556; }
-    .p5 .tag       { background:#FBEAF0; color:#72243E; border-color:#ED93B1; }
-    .p5 .detail    { border-color:#ED93B1; background:#FBEAF0; }
+    .p5 .step-dot  { background:#280e1e; color:#e090b8; border-color:#993556; }
+    .p5 .step-phase{ color:#cc4878; }
+    .p5 .tag       { background:#280e1e; color:#e090b8; border-color:#993556; }
 
-    /* p6: Amber */
-    .p6 .step-dot  { background:#FAEEDA; color:#633806; border-color:#EF9F27; }
-    .p6 .step-label{ color:#854F0B; }
-    .p6 .tag       { background:#FAEEDA; color:#633806; border-color:#EF9F27; }
-    .p6 .detail    { border-color:#EF9F27; background:#FAEEDA; }
+    .p6 .step-dot  { background:#251600; color:#e8b860; border-color:#854F0B; }
+    .p6 .step-phase{ color:#c8820e; }
+    .p6 .tag       { background:#251600; color:#e8b860; border-color:#854F0B; }
 
-    /* p7: Green */
-    .p7 .step-dot  { background:#EAF3DE; color:#27500A; border-color:#97C459; }
-    .p7 .step-label{ color:#3B6D11; }
-    .p7 .tag       { background:#EAF3DE; color:#27500A; border-color:#97C459; }
-    .p7 .detail    { border-color:#97C459; background:#EAF3DE; }
+    .p7 .step-dot  { background:#0e2006; color:#90c860; border-color:#3B6D11; }
+    .p7 .step-phase{ color:#5a9c20; }
+    .p7 .tag       { background:#0e2006; color:#90c860; border-color:#3B6D11; }
 
-    /* Dark mode overrides */
-    @media (prefers-color-scheme: dark) {
-      .p1 .step-dot { background:#26215C; color:#CECBF6; border-color:#534AB7; }
-      .p1 .tag      { background:#26215C; color:#CECBF6; border-color:#534AB7; }
-      .p1 .detail   { background:#26215C; }
-
-      .p2 .step-dot { background:#04342C; color:#9FE1CB; border-color:#0F6E56; }
-      .p2 .tag      { background:#04342C; color:#9FE1CB; border-color:#0F6E56; }
-      .p2 .detail   { background:#04342C; }
-
-      .p3 .step-dot { background:#4A1B0C; color:#F5C4B3; border-color:#993C1D; }
-      .p3 .tag      { background:#4A1B0C; color:#F5C4B3; border-color:#993C1D; }
-      .p3 .detail   { background:#4A1B0C; }
-
-      .p4 .step-dot { background:#042C53; color:#B5D4F4; border-color:#185FA5; }
-      .p4 .tag      { background:#042C53; color:#B5D4F4; border-color:#185FA5; }
-      .p4 .detail   { background:#042C53; }
-
-      .p5 .step-dot { background:#4B1528; color:#F4C0D1; border-color:#993556; }
-      .p5 .tag      { background:#4B1528; color:#F4C0D1; border-color:#993556; }
-      .p5 .detail   { background:#4B1528; }
-
-      .p6 .step-dot { background:#412402; color:#FAC775; border-color:#854F0B; }
-      .p6 .tag      { background:#412402; color:#FAC775; border-color:#854F0B; }
-      .p6 .detail   { background:#412402; }
-
-      .p7 .step-dot { background:#173404; color:#C0DD97; border-color:#3B6D11; }
-      .p7 .tag      { background:#173404; color:#C0DD97; border-color:#3B6D11; }
-      .p7 .detail   { background:#173404; }
+    /* ─── REAL WORLD EXAMPLE ─── */
+    .example-section {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem 4rem;
     }
+
+    .example-case {
+      background: var(--bg2);
+      border: 0.5px solid var(--border2);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .example-header {
+      background: var(--gold-bg);
+      border-bottom: 0.5px solid rgba(201,168,76,0.2);
+      padding: 1.5rem 2rem;
+    }
+
+    .example-header h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .example-header p {
+      font-size: 13px;
+      color: var(--text2);
+    }
+
+    .example-header .brand-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: rgba(201,168,76,0.12);
+      border: 0.5px solid rgba(201,168,76,0.3);
+      border-radius: 20px;
+      padding: 3px 10px;
+      margin-bottom: 10px;
+    }
+
+    .example-steps {
+      padding: 1.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .ex-step {
+      display: flex;
+      gap: 1rem;
+      padding-bottom: 1.25rem;
+      position: relative;
+    }
+
+    .ex-step:not(:last-child)::before {
+      content: '';
+      position: absolute;
+      left: 15px;
+      top: 32px;
+      bottom: 0;
+      width: 1px;
+      background: var(--border);
+    }
+
+    .ex-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--bg3);
+      border: 0.5px solid var(--border2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text2);
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .ex-body { flex: 1; padding-top: 4px; }
+
+    .ex-phase {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 2px;
+    }
+
+    .ex-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .ex-desc {
+      font-size: 13px;
+      color: var(--text2);
+      line-height: 1.6;
+    }
+
+    .ex-outcome {
+      margin-top: 1.5rem;
+      padding: 1rem 1.25rem;
+      background: var(--bg3);
+      border-radius: 10px;
+      border-left: 2px solid var(--gold);
+    }
+
+    .ex-outcome p {
+      font-size: 13px;
+      color: var(--text2);
+      line-height: 1.65;
+    }
+
+    .ex-outcome strong { color: var(--gold2); font-weight: 500; }
 
     footer {
-      margin-top: 3rem;
-      padding-top: 1.5rem;
       border-top: 0.5px solid var(--border);
+      padding: 1.5rem 2rem;
+      text-align: center;
       font-size: 12px;
       color: var(--text3);
-      text-align: center;
+      max-width: 760px;
+      margin: 0 auto;
     }
+
   </style>
 </head>
 <body>
-  <div class="container">
 
-    <header>
-      <h1>Brand Design Leadership Framework</h1>
-      <p>A step-by-step process for advancing any brand through strategic creative thinking.<br>Tap any step to expand the thinking behind it.</p>
-    </header>
+  <!-- HERO -->
+  <div class="hero">
+    <p class="hero-eyebrow">Creative Director's Playbook</p>
+    <h1>Brand Design<br><em>Leadership</em> Framework</h1>
+    <p class="hero-sub">A strategic process for advancing any brand through design thinking — built for the moments when you're hired for your mind, not your hands.</p>
+  </div>
 
-    <div class="steps">
+  <!-- 90-SECOND CHEAT SHEET -->
+  <div class="cheat-sheet">
+    <p class="section-label">90-Second Cheat Sheet</p>
 
-      <div class="step p1" onclick="toggle(this)">
-        <div class="step-left">
-          <div class="step-dot">01</div>
-          <div class="step-line"></div>
-        </div>
-        <div class="step-content">
-          <p class="step-label">Diagnose</p>
-          <p class="step-title">Read the brand before you touch it</p>
-          <p class="step-desc">Before any brief, audit. Understand what the brand is doing, what it's saying, and what gap exists between perception and reality.</p>
-          <div class="step-tags">
-            <span class="tag">Brand audit</span>
-            <span class="tag">Competitive scan</span>
-            <span class="tag">Audience perception</span>
-            <span class="tag">Internal vs external truth</span>
-          </div>
-          <div class="detail">
-            <p><strong>Key questions to ask:</strong> What does this brand think it is vs. what do people actually think? Where is design being used to hide a problem instead of solving one? What's the one thing this brand could own that no competitor can?</p>
-            <p><strong>Challenge move:</strong> If a brief lands before you do this — pause it. You can't challenge bad thinking without first understanding what's true.</p>
-          </div>
-          <p class="toggle-hint">Tap to expand ↓</p>
-        </div>
-      </div>
-
-      <div class="step p2" onclick="toggle(this)">
-        <div class="step-left">
-          <div class="step-dot">02</div>
-          <div class="step-line"></div>
-        </div>
-        <div class="step-content">
-          <p class="step-label">Define</p>
-          <p class="step-title">Name the brand's tension</p>
-          <p class="step-desc">Every brand has a tension — what it wants to be vs. what holds it back. Naming it is the most valuable thing you can do before design begins.</p>
-          <div class="step-tags">
-            <span class="tag">Brand tension</span>
-            <span class="tag">Positioning clarity</span>
-            <span class="tag">Strategic narrative</span>
-          </div>
-          <div class="detail">
-            <p><strong>Examples of tension:</strong> "We want to feel premium but our pricing says otherwise." / "We say we're for everyone but our visuals only show one type of person." / "Our product is bold but our brand is timid."</p>
-            <p><strong>Why this matters:</strong> The tension becomes your real design brief — not the one the client wrote.</p>
-          </div>
-          <p class="toggle-hint">Tap to expand ↓</p>
-        </div>
-      </div>
-
-      <div class="step p3" onclick="toggle(this)">
-        <div class="step-left">
-          <div class="step-dot">03</div>
-          <div class="step-line"></div>
-        </div>
-        <div class="step-content">
-          <p class="step-label">Challenge</p>
-          <p class="step-title">Question the brief, not just fulfill it</p>
-          <p class="step-desc">A brief tells you what the client thinks they want. Your job is to find out what they actually need — and have the language to redirect them without losing them.</p>
-          <div class="step-tags">
-            <span class="tag">Brief deconstruction</span>
-            <span class="tag">Problem reframing</span>
-            <span class="tag">Strategic pushback</span>
-          </div>
-          <div class="detail">
-            <p><strong>Brief challenge framework:</strong> (1) What problem is this brief actually trying to solve? (2) Is design the right solution — or is this a product/messaging/leadership problem wearing design clothes? (3) What's the risk of solving this brief exactly as written?</p>
-            <p><strong>The language of challenge:</strong> "What I'm hearing is X — but what I think the real opportunity is Y. Can we explore that first?"</p>
-          </div>
-          <p class="toggle-hint">Tap to expand ↓</p>
-        </div>
-      </div>
-
-      <div class="step p4" onclick="toggle(this)">
-        <div class="step-left">
-          <div class="step-dot">04</div>
-          <div class="step-line"></div>
-        </div>
-        <div class="step-content">
-          <p class="step-label">Strategize</p>
-          <p class="step-title">Build the design case</p>
-          <p class="step-desc">Before a single pixel, you need to be able to articulate why this direction advances the brand — not just makes it look better.</p>
-          <div class="step-tags">
-            <span class="tag">Design rationale</span>
-            <span class="tag">Business alignment</span>
-            <span class="tag">Measurable outcomes</span>
-            <span class="tag">Risk framing</span>
-          </div>
-          <div class="detail">
-            <p><strong>The design case answers:</strong> What business problem does this solve? How will we know it worked? What does doing nothing cost? What's the trade-off between the safe direction and the brave one?</p>
-            <p><strong>Your edge:</strong> Most creative directors sell aesthetics. You sell outcomes. That's why leadership hires you to think, not just execute.</p>
-          </div>
-          <p class="toggle-hint">Tap to expand ↓</p>
-        </div>
-      </div>
-
-      <div class="step p5" onclick="toggle(this)">
-        <div class="step-left">
-          <div class="step-dot">05</div>
-          <div class="step-line"></div>
-        </div>
-        <div class="step-content">
-          <p class="step-label">Direct</p>
-          <p class="step-title">Lead the creative with intention</p>
-          <p class="step-desc">Now design begins — but you're not making it, you're directing it. The difference is holding the strategy while the team explores, and knowing when exploration has gone off-brand.</p>
-          <div class="step-tags">
-            <span class="tag">Creative direction</span>
-            <span class="tag">Concept evaluation</span>
-            <span class="tag">Design principles</span>
-            <span class="tag">Feedback language</span>
-          </div>
-          <div class="detail">
-            <p><strong>What great creative direction looks like:</strong> You react to work with strategic language, not aesthetic preference. "This doesn't feel right" becomes "This doesn't solve the tension we named in step 2 — here's why."</p>
-            <p><strong>The direction test:</strong> Can every decision in the work be traced back to a strategic reason? If not, it's decoration, not design.</p>
-          </div>
-          <p class="toggle-hint">Tap to expand ↓</p>
-        </div>
-      </div>
-
-      <div class="step p6" onclick="toggle(this)">
-        <div class="step-left">
-          <div class="step-dot">06</div>
-          <div class="step-line"></div>
-        </div>
-        <div class="step-content">
-          <p class="step-label">Present</p>
-          <p class="step-title">Sell the thinking, not just the work</p>
-          <p class="step-desc">How you present determines whether leadership adopts your vision or waters it down. You're not defending a design — you're walking them through a decision.</p>
-          <div class="step-tags">
-            <span class="tag">Narrative structure</span>
-            <span class="tag">Stakeholder framing</span>
-            <span class="tag">Objection preparation</span>
-            <span class="tag">Decision architecture</span>
-          </div>
-          <div class="detail">
-            <p><strong>Presentation structure:</strong> (1) Here's the problem we agreed to solve. (2) Here's why the obvious answer wasn't enough. (3) Here's what we found when we dug deeper. (4) Here's the direction — and here's what it does for the business. (5) Here's what it costs to play it safe instead.</p>
-            <p><strong>Rule:</strong> Never show work without context. Context is what you're being hired for.</p>
-          </div>
-          <p class="toggle-hint">Tap to expand ↓</p>
-        </div>
-      </div>
-
-      <div class="step p7" onclick="toggle(this)">
-        <div class="step-left">
-          <div class="step-dot">07</div>
-          <div class="step-line"></div>
-        </div>
-        <div class="step-content">
-          <p class="step-label">Evolve</p>
-          <p class="step-title">Make the brand smarter over time</p>
-          <p class="step-desc">The work doesn't end at launch. You stay close to how the brand performs — and use what you learn to sharpen the next brief before it's even written.</p>
-          <div class="step-tags">
-            <span class="tag">Brand performance</span>
-            <span class="tag">Feedback loops</span>
-            <span class="tag">Living systems thinking</span>
-            <span class="tag">Proactive stewardship</span>
-          </div>
-          <div class="detail">
-            <p><strong>What evolution looks like:</strong> You're not reactive — you're watching the market, the culture, and the brand's own behavior. You bring leadership new thinking before they ask for it. That's the difference between a vendor and a strategic partner.</p>
-            <p><strong>The question you always carry:</strong> What does this brand need to become — not just look like — to win in the next 3 years?</p>
-          </div>
-          <p class="toggle-hint">Tap to expand ↓</p>
-        </div>
-      </div>
-
+    <div class="cheat-banner">
+      <p><strong>For impromptu meetings.</strong> Before anyone opens a brief, run through these 7 questions out loud. Each one surfaces a strategic insight in under 15 seconds. The goal isn't to have all the answers — it's to ask the question nobody else in the room is asking.</p>
     </div>
 
-    <footer>Brand Design Leadership Framework &mdash; built for strategic creative thinking</footer>
+    <div class="cheat-grid">
+      <div class="cheat-card">
+        <p class="cheat-num">01 — Diagnose</p>
+        <h4>What's the gap?</h4>
+        <p>What does this brand think it is vs. what do people actually think?</p>
+        <p class="cheat-q">"Where is perception off from reality?"</p>
+      </div>
+      <div class="cheat-card">
+        <p class="cheat-num">02 — Define</p>
+        <h4>Name the tension</h4>
+        <p>What does this brand want to be vs. what's holding it back right now?</p>
+        <p class="cheat-q">"What's the one contradiction that design must resolve?"</p>
+      </div>
+      <div class="cheat-card">
+        <p class="cheat-num">03 — Challenge</p>
+        <h4>Is this the right brief?</h4>
+        <p>Is the brief solving the real problem — or just the visible symptom?</p>
+        <p class="cheat-q">"What happens if we do exactly what's asked?"</p>
+      </div>
+      <div class="cheat-card">
+        <p class="cheat-num">04 — Strategize</p>
+        <h4>What's the business case?</h4>
+        <p>What does this design decision do for revenue, trust, or growth?</p>
+        <p class="cheat-q">"What does doing nothing cost?"</p>
+      </div>
+      <div class="cheat-card">
+        <p class="cheat-num">05 — Direct</p>
+        <h4>Does every choice have a reason?</h4>
+        <p>Can you trace each creative decision back to the brand's tension?</p>
+        <p class="cheat-q">"Is this decoration or design?"</p>
+      </div>
+      <div class="cheat-card">
+        <p class="cheat-num">06 — Present</p>
+        <h4>Are you selling the thinking?</h4>
+        <p>Is your story about what it looks like — or what it does for the brand?</p>
+        <p class="cheat-q">"Would they get it without seeing the work?"</p>
+      </div>
+      <div class="cheat-card">
+        <p class="cheat-num">07 — Evolve</p>
+        <h4>What does it need to become?</h4>
+        <p>Where does this brand need to be in 3 years — and is today's design moving toward that?</p>
+        <p class="cheat-q">"Are we building a brand or just solving a project?"</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEPS -->
+  <div class="steps-section">
+    <p class="section-label">Deep Dive Guide</p>
+
+    <!-- STEP 01 -->
+    <div class="step p1" onclick="toggleStep(this)">
+      <div class="step-left">
+        <div class="step-dot">01</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-content">
+        <p class="step-phase">Diagnose</p>
+        <p class="step-title">Read the brand before you touch it</p>
+        <p class="step-desc">Before any brief, audit. Understand what the brand is doing, what it's saying, and what gap exists between perception and reality.</p>
+        <div class="tags">
+          <span class="tag" onclick="openModal(event,'Brand Audit','A systematic review of every brand touchpoint — visual identity, messaging, tone of voice, digital presence, physical materials, and customer experience — to identify inconsistencies, missed opportunities, and areas where the brand is working against itself.','Nike (2010s)','Nike audited their visual system and discovered their brand had fragmented across digital and retail. The swoosh was being used inconsistently, typography was drifting. The audit led to a strict unified digital-first design system.','Airbnb (2014)','Before their rebrand, Airbnb audited how hosts and guests described the brand. They found a gap: people were saying "belonging" but the brand looked like a travel booking site. The Bélo symbol came directly from that audit.','Gap (2010)','Gap\'s logo change failed because they never audited what customers emotionally owned. A proper brand audit would have shown the old logo had 40+ years of equity. They reversed the change in 6 days.')">Brand audit</span>
+          <span class="tag" onclick="openModal(event,'Competitive Scan','A structured analysis of how direct and indirect competitors present themselves visually and verbally — what space they occupy, what they\'re saying, and where white space exists for differentiation. The goal isn\'t to copy competitors but to find the gap nobody owns.','Dollar Shave Club','Before launching, DSC scanned Gillette and Schick — both were serious, masculine, and premium. The entire gap of humor, irreverence, and value was completely open. Their brand filled it completely.','Oatly','Oatly scanned the alt-milk space and found every brand looked clinical and earnest. They chose the opposite: chaotic, self-aware, anti-corporate design. Their packaging reads like a blog post. It was available because nobody else took the risk.','Apple (1998)','When Jobs returned, Apple scanned the PC market and found every competitor was communicating specs and performance. Nobody was communicating identity and creativity. \"Think Different\" occupied empty territory.')">Competitive scan</span>
+          <span class="tag" onclick="openModal(event,'Audience Perception','How actual customers, prospects, or the public describe and feel about the brand — not how the brand describes itself. This is the gap between the brand\'s self-image and the market\'s reality. It\'s gathered through interviews, social listening, reviews, and cultural observation.','Dove (2004)','Dove\'s research showed women felt advertising was alienating and unattainable. The brand itself felt generic. Audience perception led directly to the \"Real Beauty\" campaign — not a creative idea, but a response to what women were actually saying.','Burberry (early 2000s)','Audience perception research revealed Burberry\'s iconic plaid had been adopted by groups the luxury customer didn\'t want association with. Their rebrand stripped back the plaid and repositioned up-market.','Old Spice (2010)','P&G\'s research found Old Spice\'s audience perceived the brand as their grandfather\'s cologne. Younger buyers actively avoided it. That perception shift led to the complete creative reinvention with Isaiah Mustafa.')">Audience perception</span>
+          <span class="tag" onclick="openModal(event,'Internal vs External Truth','The gap between how a company\'s employees, leadership, and culture describe the brand versus how outsiders — customers, media, competitors — actually experience it. When this gap is large, no amount of design fixes the problem. When they align, design amplifies something already true.','Patagonia','Internally, Patagonia\'s truth was environmental activism. But externally, they were perceived as an expensive outdoor gear brand for tech bros. Their \"Don\'t Buy This Jacket\" campaign closed the gap by making the internal truth impossible to ignore.','WeWork','Internally, WeWork called itself a consciousness-elevating community company. Externally, customers experienced it as coworking space rental. The brand collapsed when the gap became public — no visual identity could bridge that contradiction.','Trader Joe\'s','Internally, Trader Joe\'s has always operated on the truth that grocery shopping should be joyful and affordable. Externally, customers describe it with almost identical language. That alignment — not their design — is why the brand is beloved.')">Internal vs external truth</span>
+        </div>
+        <div class="step-expand">
+          <p><strong>Key questions to ask:</strong> What does this brand think it is vs. what do people actually think? Where is design being used to hide a problem instead of solving one? What's the one thing this brand could own that no competitor can?</p>
+          <p><strong>Challenge move:</strong> If a brief lands before you do this — pause it. You can't challenge bad thinking without first understanding what's true.</p>
+        </div>
+        <p class="toggle-hint">Tap to expand ↓</p>
+      </div>
+    </div>
+
+    <!-- STEP 02 -->
+    <div class="step p2" onclick="toggleStep(this)">
+      <div class="step-left">
+        <div class="step-dot">02</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-content">
+        <p class="step-phase">Define</p>
+        <p class="step-title">Name the brand's tension</p>
+        <p class="step-desc">Every brand has a tension — what it wants to be vs. what holds it back. Naming it is the most valuable thing you can do before design begins.</p>
+        <div class="tags">
+          <span class="tag" onclick="openModal(event,'Brand Tension','The central contradiction a brand must resolve through design and strategy. It\'s the gap between aspiration and reality, between what the brand wants to communicate and what customers currently experience. Naming it precisely is more valuable than any creative brief.','Lululemon','Tension: wants to be a premium wellness philosophy brand but is perceived as expensive yoga pants. Resolving this tension drove everything from their in-store ambassador program to their app, events, and community language.','Tesla','Tension: wants to be a technology company but is categorized as a car company. Every design decision — from the no-dealership model to the over-the-air updates to the minimal interior — is designed to resolve this tension in the customer\'s mind.','Target','Tension: wants to feel premium and design-forward but must remain affordable and accessible. Their designer collaboration program (Missoni, Alexander McQueen) directly addresses this tension — premium cred at mass-market price.')">Brand tension</span>
+          <span class="tag" onclick="openModal(event,'Positioning Clarity','The ability to state in one sentence what a brand does, who it\'s for, and why it\'s different — in a way that makes the competition look like the wrong choice. Positioning lives in strategy; design is what makes it visible and believable.','Volvo','Position: the safest car you can buy. Every design decision — the boxy reliable aesthetic, the safety-feature advertising, the Scandinavian restraint — makes this position visible without ever saying it directly.','Warby Parker','Position: designer eyewear without the designer markup, with a social mission. Their clean, editorial design communicates premium without premium pricing. The home try-on program makes the position a physical experience.','FedEx','\"When it absolutely, positively has to be there overnight.\" Their entire visual identity — the urgency of the logo, the precision of the purple and orange — was designed to make that position feel like a guaranteed truth.')">Positioning clarity</span>
+          <span class="tag" onclick="openModal(event,'Strategic Narrative','The story that connects a brand\'s origin, purpose, tension, and ambition into a single coherent arc — told not just in advertising but in every design decision, product choice, and customer experience. It\'s the story that makes all the details feel inevitable.','Patagonia','Narrative: a company founded by a climber who made his own gear because nothing good existed — and still acts like it hasn\'t compromised since. Every product tag, store design, and campaign extends this single narrative.','Glossier','Narrative: beauty built from the community up, not from a lab down. Their editorial pink aesthetic, the millennial serif font, the community-sourced product development — all extend one narrative about who has the authority to define beauty.','Liquid Death','Narrative: water that fights back against the plastic industry and the corpo-wellness aesthetic. Their heavy metal branding, death imagery, and \"murder your thirst\" language is the narrative made completely visible.')">Strategic narrative</span>
+        </div>
+        <div class="step-expand">
+          <p><strong>Examples of tension:</strong> "We want to feel premium but our pricing says otherwise." / "We say we're for everyone but our visuals only show one type of person." / "Our product is bold but our brand is timid."</p>
+          <p><strong>Why this matters:</strong> The tension becomes your real design brief — not the one the client wrote.</p>
+        </div>
+        <p class="toggle-hint">Tap to expand ↓</p>
+      </div>
+    </div>
+
+    <!-- STEP 03 -->
+    <div class="step p3" onclick="toggleStep(this)">
+      <div class="step-left">
+        <div class="step-dot">03</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-content">
+        <p class="step-phase">Challenge</p>
+        <p class="step-title">Question the brief, not just fulfill it</p>
+        <p class="step-desc">A brief tells you what the client thinks they want. Your job is to find out what they actually need — and have the language to redirect them without losing them.</p>
+        <div class="tags">
+          <span class="tag" onclick="openModal(event,'Brief Deconstruction','The process of dismantling a creative brief to expose its hidden assumptions, unstated goals, and the real problem beneath the stated one. A brief is a client\'s best guess — deconstruction finds out if the guess is right.','Coca-Cola (New Coke)','The brief was: \"improve our formula to compete with Pepsi in blind taste tests.\" A deconstructed brief would have asked: are we solving a taste problem or a cultural relevance problem? They solved the wrong brief. The reversal of New Coke became their greatest brand moment.','Spotify Wrapped','The brief could have been: \"create a year-end email campaign.\" Someone deconstructed it to: \"make users feel seen and give them something to share.\" The outcome changed from a retention email to a cultural moment.','REI #OptOutside','The brief was likely: \"Black Friday sales campaign.\" Someone deconstructed it to: \"what does a brand that believes in the outdoors do on the biggest shopping day of the year?\" The answer was close the stores.')">Brief deconstruction</span>
+          <span class="tag" onclick="openModal(event,'Problem Reframing','Restating a client\'s problem at a higher level of abstraction to reveal the real challenge — and often a better solution. The original problem is usually a symptom; reframing finds the cause.','IBM (2000s)','Problem as stated: \"help us sell more hardware.\" Reframed: \"help us become the company that makes businesses work smarter.\" The shift from products to services and consulting came from this reframe, not from trying to sell more servers.','McDonald\'s','Problem as stated: \"we need to appeal to health-conscious consumers.\" Reframed: \"we need permission from culture to still exist in people\'s lives.\" That reframe produced \"I\'m Lovin\' It\" — emotional permission, not a salad menu.','Slack','Problem as stated: \"make a better internal communication tool.\" Reframed: \"make work feel less like work and more like a conversation.\" The entire playful, emoji-forward design system came from that reframe.')">Problem reframing</span>
+          <span class="tag" onclick="openModal(event,'Strategic Pushback','The ability to disagree with a client\'s direction using business logic, not aesthetic preference — and to do it in a way that builds trust rather than eroding it. The language of pushback is: \"here\'s what I heard, here\'s what I think it costs us, and here\'s an alternative.\"','Pentagram / Mastercard','When Mastercard asked for a logo refresh, Pentagram pushed back on keeping the word \"Mastercard\" inside the circles. Their argument was strategic: the symbol alone was already recognized by 80% of consumers. The wordless logo was the result of strategic pushback.','Wieden+Kennedy / Nike','W+K famously pushed back on product-led campaigns in favor of athlete and cultural narratives. \"Just Do It\" came from refusing to talk about shoes. The agency\'s pushback created one of the most valuable taglines in history.','Chobani Rebrand','When Chobani\'s leadership wanted to compete on protein content and health claims, their creative partners pushed back: \"you\'re not a supplement, you\'re a food.\" The entire warm, European, illustrated rebrand came from that strategic disagreement.')">Strategic pushback</span>
+        </div>
+        <div class="step-expand">
+          <p><strong>Brief challenge framework:</strong> (1) What problem is this brief actually trying to solve? (2) Is design the right solution — or is this a product/messaging/leadership problem wearing design clothes? (3) What's the risk of solving this brief exactly as written?</p>
+          <p><strong>The language of challenge:</strong> "What I'm hearing is X — but what I think the real opportunity is Y. Can we explore that first?"</p>
+        </div>
+        <p class="toggle-hint">Tap to expand ↓</p>
+      </div>
+    </div>
+
+    <!-- STEP 04 -->
+    <div class="step p4" onclick="toggleStep(this)">
+      <div class="step-left">
+        <div class="step-dot">04</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-content">
+        <p class="step-phase">Strategize</p>
+        <p class="step-title">Build the design case</p>
+        <p class="step-desc">Before a single pixel, you need to be able to articulate why this direction advances the brand — not just makes it look better.</p>
+        <div class="tags">
+          <span class="tag" onclick="openModal(event,'Design Rationale','The documented reasoning behind every significant design decision — not aesthetic justification (\"it looks cleaner\") but strategic justification (\"it resolves the tension between premium perception and mass accessibility\"). Rationale is what gets a brave direction approved and protects it from being watered down.','Airbnb Bélo','The design rationale for the Bélo wasn\'t \"it\'s a nice symbol.\" It was: the brand needed a mark that could be claimed by any community member globally — a symbol of belonging, not of a company. That rationale made the unusual choice defensible.','The New York Times App','Every typeface and layout decision in the NYT app had documented rationale: maintain the authority and credibility of print in a digital format. That rationale prevented designers from chasing trends that would have eroded the brand.','FedEx Hidden Arrow','The arrow between the E and the X wasn\'t decoration — the rationale was: forward momentum, precision, and delivery baked into the identity itself. One hidden element that made every explaining conversation a brand moment.')">Design rationale</span>
+          <span class="tag" onclick="openModal(event,'Business Alignment','The practice of connecting every design decision to a measurable business goal — revenue, retention, acquisition, trust, or market share. Design that can\'t be linked to a business outcome is decoration. Design that drives outcomes is strategy.','Mailchimp Rebrand','Mailchimp aligned their Cavendish yellow and illustrated identity directly to business goals: differentiate in a commoditized market, attract small business owners who felt intimidated by marketing tools. The playful design reduced churn by making the product feel approachable.','Spotify\'s Design System','Spotify\'s investment in a unified design system (Encore) aligned to a business goal: reduce the cost and time of shipping new features across 20+ teams. Design became an operational efficiency argument, not just an aesthetic one.','Apple Retail','The Apple Store design aligned to a specific business goal: increase purchase conversion by removing friction and making products touchable. The Genius Bar, the open layout, the lack of cash registers — all design decisions with clear revenue rationale.')">Business alignment</span>
+          <span class="tag" onclick="openModal(event,'Measurable Outcomes','The specific metrics that design decisions are expected to move — and the plan for how you\'ll know if they moved. Without measurable outcomes, design is untestable opinion. With them, design becomes accountable strategy.','Duolingo','Duolingo tied every design change in their gamification system to retention metrics. The streak feature, the angry owl — every design element had a measurable outcome: daily active users. Design became a growth function.','Airbnb Photography Standards','Airbnb discovered that professional listing photography increased booking rates by 40%. They turned that measurable outcome into a design policy: free professional photography for hosts. A design decision backed by a number.','IBM Carbon Design System','IBM\'s design system was built with a specific measurable outcome: reduce the time to build a new product interface from months to weeks. Design investment justified by engineering velocity, not aesthetics.')">Measurable outcomes</span>
+          <span class="tag" onclick="openModal(event,'Risk Framing','The practice of articulating what it costs — financially, competitively, culturally — to choose the safe design direction over the brave one. Risk framing makes the cost of conservatism visible, so leadership is making an informed choice rather than a comfortable one.','Gap Logo Reversal','Gap\'s failure to frame the risk of changing an iconic logo cost them estimated millions in negative PR and reversal costs within a week. Had they framed the risk of touching brand equity, the brief might never have been written.','Kodak','Kodak\'s leaders consistently chose the safe design and product direction (protect film) over the brave one (embrace digital). The risk of the brave choice was always foregrounded; the risk of the safe choice was never named. The company ceased to matter.','Burger King 2021 Rebrand','BK\'s agency framed the risk of their previous direction (modern, tech-adjacent design language) as making them indistinguishable from every other fast food brand. The risk of going retro and bold was smaller than the risk of staying invisible.')">Risk framing</span>
+        </div>
+        <div class="step-expand">
+          <p><strong>The design case answers:</strong> What business problem does this solve? How will we know it worked? What does doing nothing cost? What's the trade-off between the safe direction and the brave one?</p>
+          <p><strong>Your edge:</strong> Most creative directors sell aesthetics. You sell outcomes. That's why leadership hires you to think, not just execute.</p>
+        </div>
+        <p class="toggle-hint">Tap to expand ↓</p>
+      </div>
+    </div>
+
+    <!-- STEP 05 -->
+    <div class="step p5" onclick="toggleStep(this)">
+      <div class="step-left">
+        <div class="step-dot">05</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-content">
+        <p class="step-phase">Direct</p>
+        <p class="step-title">Lead the creative with intention</p>
+        <p class="step-desc">Now design begins — but you're not making it, you're directing it. The difference is holding the strategy while the team explores, and knowing when exploration has gone off-brand.</p>
+        <div class="tags">
+          <span class="tag" onclick="openModal(event,'Creative Direction','The act of guiding a team\'s creative output toward a strategic goal — not by dictating execution but by setting standards, asking strategic questions, and redirecting work that solves the wrong problem. The director holds the vision while the team finds the path.','Stanley Kubrick','Kubrick was not the primary cinematographer, set designer, or costume designer on his films. But every visual choice traced back to his direction. He held a singular vision and asked everyone around him to reach it in their own way.','Virgil Abloh at Off-White','Abloh didn\'t sew every garment or sketch every shoe. He directed a team toward a specific cultural thesis: what happens when streetwear and luxury collide. Every design decision was tested against that thesis.','Jonathan Ive at Apple','Ive famously gave his team extreme creative latitude but held two non-negotiable standards: simplicity and purpose. Every design that couldn\'t explain its existence was cut. That\'s creative direction — not control, but criteria.')">Creative direction</span>
+          <span class="tag" onclick="openModal(event,'Concept Evaluation','The process of assessing creative concepts not on whether you personally like them, but on whether they solve the strategic problem — whether they resolve the brand\'s tension, differentiate from competitors, and create a platform that can scale.','Wieden+Kennedy\'s Wall','W+K famously posts all concepts on a wall and evaluates them by asking one question: \"is this brave?\" Not \"is this pretty\" or \"will the client like this\" — brave. That single criteria filters for strategic differentiation.','IDEO\'s \"How Might We\"','IDEO evaluates early concepts by asking \"how might we\" questions that keep concepts connected to user needs. It prevents the team from falling in love with execution before validating the strategic fit.','Pentagram Crits','Pentagram\'s design crits are legendary for being brutal on rationale: every choice must be explainable in strategic terms. \"I just felt it\" is not accepted. Concept evaluation forces articulation of the thinking behind the seeing.')">Concept evaluation</span>
+          <span class="tag" onclick="openModal(event,'Design Principles','A short set of strategic filters — usually 3 to 5 — that every design decision must pass before it can be approved. Principles are not aesthetic preferences; they are strategic commitments. They make direction scalable across a team and immune to personal taste.','Google\'s Material Design','Google\'s principles: bold, graphic, intentional. Every element in Material Design — the shadows, the motion, the color usage — was filtered through these three words. 200+ designers made decisions that felt coherent because the principles were the system.','Airbnb Design Principles','Airbnb\'s design principles include \"unified\" and \"universal.\" These aren\'t aesthetic descriptions — they\'re strategic commitments to consistency across markets and accessibility across abilities. Every product decision runs through them.','IBM Design Language','IBM\'s principles: thoughtful, clear, progressive. These three words govern a design system used by thousands of designers worldwide. The principles replace the need for IBM to approve every design — they create self-directed quality.')">Design principles</span>
+          <span class="tag" onclick="openModal(event,'Feedback Language','The specific vocabulary used to evaluate and redirect creative work — language that connects observations to strategy rather than personal taste. Feedback language determines whether a creative team produces better work or just more compliant work.','\"Yes, and\" vs \"No, because\"','Pixar\'s feedback culture separates these two modes: \"yes, and\" builds on what\'s working before naming what isn\'t. \"No, because\" shuts down exploration. Strategic feedback almost always starts with what\'s working and why, then redirects.','Problem-first language','Instead of \"I don\'t like the color choice,\" say \"this color doesn\'t signal the premium positioning we need.\" Instead of \"the layout feels busy,\" say \"the visual hierarchy isn\'t directing attention to the thing that closes the sale.\" One sentence, one strategy link.','Question-based redirection','The most powerful feedback often comes as a question: \"If someone saw this with no context, what would they think this brand stands for?\" Questions force the team to self-evaluate rather than defend — and produce better thinking than directives.')">Feedback language</span>
+        </div>
+        <div class="step-expand">
+          <p><strong>What great creative direction looks like:</strong> You react to work with strategic language, not aesthetic preference. "This doesn't feel right" becomes "This doesn't solve the tension we named in step 2."</p>
+          <p><strong>The direction test:</strong> Can every decision in the work be traced back to a strategic reason? If not, it's decoration, not design.</p>
+        </div>
+        <p class="toggle-hint">Tap to expand ↓</p>
+      </div>
+    </div>
+
+    <!-- STEP 06 -->
+    <div class="step p6" onclick="toggleStep(this)">
+      <div class="step-left">
+        <div class="step-dot">06</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-content">
+        <p class="step-phase">Present</p>
+        <p class="step-title">Sell the thinking, not just the work</p>
+        <p class="step-desc">How you present determines whether leadership adopts your vision or waters it down. You're not defending a design — you're walking them through a decision.</p>
+        <div class="tags">
+          <span class="tag" onclick="openModal(event,'Narrative Structure','The sequencing of a creative presentation so that the work feels inevitable — not like a pitch, but like a conclusion that the audience reaches alongside you. Narrative structure takes leadership from problem to insight to solution, so the design is the only logical answer.','The Problem First','Apple\'s product presentations always start with the problem in the most visceral terms possible before any solution is shown. \"Carrying 1,000 songs in your pocket\" named the problem of carrying CDs before the iPod was revealed. Structure that makes the solution feel like relief.','McKinsey\'s Pyramid Principle','Start with the conclusion, then support it. In design presentations: \"Here\'s the direction, and here\'s why it\'s right\" — not \"here\'s our process, and eventually here\'s what we made.\" Leadership time is short; lead with the answer.','The Two-Path Presentation','Show the brave direction and the safe direction, with the business case for each. Never show only one option — it looks like you didn\'t explore. Never show three — it creates a committee. Two forces a real decision.')">Narrative structure</span>
+          <span class="tag" onclick="openModal(event,'Stakeholder Framing','The practice of tailoring how you contextualize a design direction based on who is in the room — their priorities, risk tolerance, vocabulary, and what they\'re accountable for. The CEO needs to hear the revenue story. The CMO needs to hear the differentiation story. The CFO needs to hear the efficiency story.','CFO Framing','\"This rebrand will reduce asset production costs by eliminating the 47 logo variants currently in use\" — this is not an aesthetic argument, it\'s an operational one. CFOs respond to numbers and cost reduction. Frame design in those terms.','CEO Framing','\"This direction creates a defensible visual position that our top three competitors cannot occupy without a complete rebrand\" — this is a competitive moat argument. CEOs respond to competitive advantage and market position.','CMO Framing','\"This identity system gives every campaign team a clear visual language that creates cumulative brand recognition — every dollar of media spend makes the brand stronger, not just the campaign.\" CMOs respond to media efficiency and brand equity.')">Stakeholder framing</span>
+          <span class="tag" onclick="openModal(event,'Objection Preparation','Anticipating the objections leadership will raise before you present — and building the answers into the presentation itself, so objections become moments of reassurance rather than derailment. Every significant objection is a question about risk; your job is to make the risk visible and manageable.','\"Our customers won\'t recognize us\"','Prepare: \"Here\'s what we\'re keeping — the [equity element]. Here\'s what we\'re changing — the [outdated element]. Brands that haven\'t updated their identity in 10+ years lose recognition to newer entrants, not to rebrands.\"','\"Can we be more conservative?\"','Prepare: \"Here\'s what the conservative version looks like — and here\'s what it costs us in differentiation.\" Show it. Make the safe choice visible and then make its cost visible. Never just defend the brave choice — show what they\'re trading.','\"What if it tests poorly?\"','Prepare: \"Here\'s our testing plan. Here\'s what we\'re measuring. And here\'s the historical data on brands that tested their identity with existing customers — the research consistently shows existing customers are the last people to predict future brand success.\"')">Objection preparation</span>
+          <span class="tag" onclick="openModal(event,'Decision Architecture','Structuring a presentation so that the decision point is clear, the stakes are visible, and leadership feels equipped to decide — rather than defer, dilute, or delay. Decision architecture turns a presentation into an act of leadership, not just a show-and-tell.','Remove the third option','Three options create committees. Two options create decisions. One option looks arrogant. The architecture of choice matters as much as the choices themselves. Always present the direction you believe in alongside one alternative — never more.','Make inaction a choice','Present doing nothing as Option C: \"If we proceed with the current identity for another 18 months, here\'s what the competitive landscape looks like.\" Making inaction explicit forces leadership to own it as a decision, not just a delay.','End with a question, not a request','Instead of \"we\'d love your approval,\" end with \"which of these two directions do you think aligns best with where you want to take the brand in the next 3 years?\" Shift from seeking permission to facilitating a leadership decision.')">Decision architecture</span>
+        </div>
+        <div class="step-expand">
+          <p><strong>Presentation structure:</strong> (1) Here's the problem we agreed to solve. (2) Here's why the obvious answer wasn't enough. (3) Here's what we found. (4) Here's the direction and what it does for the business. (5) Here's what the safe choice costs.</p>
+          <p><strong>Rule:</strong> Never show work without context. Context is what you're being hired for.</p>
+        </div>
+        <p class="toggle-hint">Tap to expand ↓</p>
+      </div>
+    </div>
+
+    <!-- STEP 07 -->
+    <div class="step p7" onclick="toggleStep(this)">
+      <div class="step-left">
+        <div class="step-dot">07</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-content">
+        <p class="step-phase">Evolve</p>
+        <p class="step-title">Make the brand smarter over time</p>
+        <p class="step-desc">The work doesn't end at launch. You stay close to how the brand performs — and use what you learn to sharpen the next brief before it's even written.</p>
+        <div class="tags">
+          <span class="tag" onclick="openModal(event,'Brand Performance','The ongoing measurement of how well a brand\'s visual and verbal identity is achieving its strategic goals — tracked through metrics like brand recall, sentiment, share of voice, conversion rates, and competitive perception studies. Performance data turns brand decisions from opinions into evidence.','Coca-Cola Share a Coke','After launch, Coca-Cola tracked a 2% increase in US sales and 150% growth in social mentions. Performance data confirmed the personalization strategy and led to expansion into 80+ countries. Brand performance data drove a multi-year strategy.','Spotify Brand Tracking','Spotify runs quarterly brand perception studies across markets to track how their design and marketing is shifting perception from \"music app\" to \"audio platform.\" Performance data has directly shaped product design decisions.','Dove Real Beauty','Dove has tracked brand preference metrics since 2004 and can attribute specific sales growth to the Real Beauty campaign. 20 years of performance data has kept the brand committed to a direction that most competitors still haven\'t matched.')">Brand performance</span>
+          <span class="tag" onclick="openModal(event,'Feedback Loops','The systems a brand builds to continuously receive signal from the market — customer research, social listening, sales data, product usage analytics, cultural monitoring — and route that signal back into design and brand decisions.','Glossier Community Feedback','Glossier built Into The Gloss, a beauty blog, specifically as a feedback loop. Product ideas, naming decisions, and visual directions were tested with their community before production. The brand\'s design was continuously shaped by this loop.','Netflix Thumbnail Testing','Netflix runs continuous A/B tests on every piece of marketing imagery — thumbnail art, title treatments, promotional graphics. Their entire visual language is shaped by a feedback loop of what makes people watch.','Patagonia Worn Wear','Patagonia\'s Worn Wear program — which repairs and resells used gear — generates continuous feedback about which products have design flaws. Customer repairs shaped future product design. A feedback loop that makes the brand better.')">Feedback loops</span>
+          <span class="tag" onclick="openModal(event,'Living Systems Thinking','Treating a brand\'s visual identity not as a finished artifact but as a living system that grows, adapts, and responds to cultural change — while maintaining the core tension and principles that make it recognizable. Living systems have rules, not just rules.','Google Doodles','Google\'s identity is a living system: the core logo is fixed, but the Doodle program allows constant cultural responsiveness. The system has clear rules (the word \"Google\" must be readable) and infinite flexibility within them.','Nike\'s Visual Language','Nike has never stopped evolving. The swoosh is fixed; everything around it is a living system. Typography, photography style, campaign visual language — all continuously updated in response to culture while the mark stays constant.','NASA\'s Worm Revival','NASA\'s design system has two eras: the original \"worm\" logo (1974) and its revival (2020). The revival shows living systems thinking: knowing when cultural context has changed enough that returning to a dormant element creates new meaning.')">Living systems thinking</span>
+          <span class="tag" onclick="openModal(event,'Proactive Stewardship','Being the person who brings brand thinking to leadership before they ask for it — watching the market, culture, and competitive landscape and surfacing brand implications before they become crises. Stewardship is the difference between a vendor who responds and a partner who leads.','Interbrand\'s Annual Brand Valuations','Interbrand proactively publishes brand value rankings that turn abstract brand equity into CFO-legible numbers. This is stewardship: creating the tools that make brand health impossible for leadership to ignore.','Wolff Olins / Orange','When Wolff Olins created Orange for the UK mobile market, they stayed on as brand stewards for years — reviewing campaigns, product launches, and retail design to ensure consistency. Proactive stewardship kept Orange distinct as the market became crowded.','in-house Creative Directors','The most effective in-house CDs don\'t wait for a brief. They monitor competitor launches, cultural moments, and customer research — and come to leadership with brand implications before a problem becomes a crisis. That\'s what makes them irreplaceable.')">Proactive stewardship</span>
+        </div>
+        <div class="step-expand">
+          <p><strong>What evolution looks like:</strong> You're not reactive — you're watching the market, the culture, and the brand's own behavior. You bring leadership new thinking before they ask for it.</p>
+          <p><strong>The question you always carry:</strong> What does this brand need to become — not just look like — to win in the next 3 years?</p>
+        </div>
+        <p class="toggle-hint">Tap to expand ↓</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- REAL WORLD EXAMPLE -->
+  <div class="example-section">
+    <p class="section-label">Complete Framework — Real World Example</p>
+
+    <div class="example-case">
+      <div class="example-header">
+        <span class="brand-badge">Case Study</span>
+        <h3>Burberry — From Crisis to Cultural Icon</h3>
+        <p>How design leadership transformed a brand associated with football hooliganism back into global luxury.</p>
+      </div>
+
+      <div class="example-steps">
+
+        <div class="ex-step">
+          <div class="ex-num">01</div>
+          <div class="ex-body">
+            <p class="ex-phase">Diagnose</p>
+            <p class="ex-title">The brand audit revealed a stolen identity</p>
+            <p class="ex-desc">In the early 2000s, the brand audit showed Burberry's signature plaid had been widely adopted by chav culture in the UK. The brand was being worn as a badge by groups that premium customers actively avoided. Audience perception research showed a catastrophic gap: the brand thought it was English heritage luxury; the market associated it with fights outside pubs. Competitive scan revealed Louis Vuitton and Gucci were pulling away while Burberry was losing ground with every core luxury segment.</p>
+          </div>
+        </div>
+
+        <div class="ex-step">
+          <div class="ex-num">02</div>
+          <div class="ex-body">
+            <p class="ex-phase">Define</p>
+            <p class="ex-title">Tension: storied heritage brand that had lost control of its own story</p>
+            <p class="ex-desc">The brand tension was precise: Burberry had 150 years of authentic British heritage — Thomas Burberry invented gabardine and dressed explorers and soldiers — but had let that story slip. The internal truth was extraordinary; the external truth was a plaid pattern that had been colonized. The strategic narrative needed to be reclaimed, not invented. The tension was: extraordinary origin story, completely absent from the brand's present.</p>
+          </div>
+        </div>
+
+        <div class="ex-step">
+          <div class="ex-num">03</div>
+          <div class="ex-body">
+            <p class="ex-phase">Challenge</p>
+            <p class="ex-title">The brief was "fix the plaid." The real problem was "reclaim the story."</p>
+            <p class="ex-desc">The obvious brief — redesign or retire the plaid — was deconstructed and reframed. The plaid wasn't the problem; it was a symptom of a brand that had lost control of distribution, licensing, and narrative. Strategic pushback: if you retire the plaid without filling the space with something, you lose the only thing people recognize. The reframe became: make the plaid mean something again by surrounding it with a story worth owning.</p>
+          </div>
+        </div>
+
+        <div class="ex-step">
+          <div class="ex-num">04</div>
+          <div class="ex-body">
+            <p class="ex-phase">Strategize</p>
+            <p class="ex-title">The design case: heritage as competitive advantage, not liability</p>
+            <p class="ex-desc">The business alignment was clear: the luxury market was rewarding authenticity and provenance. Louis Vuitton, Hermès, Chanel — all leaning into founding stories. Burberry had one of the best founding stories in fashion and was ignoring it. Risk framing: continuing to let the brand drift would result in permanent down-market repositioning. The design case quantified the brand equity at stake and identified the licensing consolidation (cutting from 23 licensees to 2) as the structural change that would make design leadership possible.</p>
+          </div>
+        </div>
+
+        <div class="ex-step">
+          <div class="ex-num">05</div>
+          <div class="ex-body">
+            <p class="ex-phase">Direct</p>
+            <p class="ex-title">Christopher Bailey directed every touchpoint toward one idea: British</p>
+            <p class="ex-desc">Bailey's creative direction had one principle: authentically, uncompromisingly British — but modern British, not nostalgic British. Every concept was evaluated against that filter. The campaigns featured British models (Kate Moss, Emma Watson, Eddie Redmayne) in British weather. The digital work was ahead of every competitor — live-streamed runway shows in 2010, when other brands were still mailing press releases. Feedback language across the team: "Is this the kind of British we're claiming, or the kind we're running from?"</p>
+          </div>
+        </div>
+
+        <div class="ex-step">
+          <div class="ex-num">06</div>
+          <div class="ex-body">
+            <p class="ex-phase">Present</p>
+            <p class="ex-title">The presentation to the board was a business case, not a mood board</p>
+            <p class="ex-desc">The brand direction was presented with financial projections, competitive positioning analysis, and a clear decision architecture: Option A (reclaim heritage, consolidate licensing, invest in digital) vs. Option B (continue current trajectory). The stakeholder framing for the CFO was operational efficiency through licensing consolidation. For the CEO, it was competitive moat. Objection preparation included responses to "our current customers won't recognize us" with data showing the current customers were leaving anyway.</p>
+          </div>
+        </div>
+
+        <div class="ex-step">
+          <div class="ex-num">07</div>
+          <div class="ex-body">
+            <p class="ex-phase">Evolve</p>
+            <p class="ex-title">Brand performance tracked; the system evolved with culture</p>
+            <p class="ex-desc">Burberry built brand tracking across all key markets and monitored perception quarterly. When the brand recovered premium status, they evolved into digital experimentation (AR try-on, social-first campaigns) while maintaining the heritage core. Proactive stewardship: when "Britishness" started reading as politically charged post-Brexit, the brand shifted language toward "timeless" and "craftsmanship" — same internal truth, different cultural framing. The brand CD role became a living systems function, not a project function.</p>
+          </div>
+        </div>
+
+        <div class="ex-outcome">
+          <p><strong>Outcome:</strong> Between 2006 and 2014, Burberry's revenue grew from £736M to £2.3B. Brand value increased by over 300%. The plaid — the "problem" that started the conversation — became the most recognized luxury pattern in the world. This happened because the design leadership function was strategic, not decorative.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer>Brand Design Leadership Framework &mdash; built for strategic creative thinking</footer>
+
+  <!-- TAG MODAL -->
+  <div class="tag-modal-overlay" id="modal" onclick="closeModalOutside(event)">
+    <div class="tag-modal" id="modal-inner">
+      <h3 id="modal-title"></h3>
+      <p class="tag-def" id="modal-def"></p>
+      <h4>Real-World Examples</h4>
+      <ul class="example-list" id="modal-examples"></ul>
+      <button class="modal-close" onclick="closeModal()">Close</button>
+    </div>
   </div>
 
   <script>
-    function toggle(el) {
+    function toggleStep(el) {
       const wasOpen = el.classList.contains('open');
       document.querySelectorAll('.step').forEach(s => s.classList.remove('open'));
       if (!wasOpen) el.classList.add('open');
     }
+
+    function openModal(e, title, def, ex1title, ex1desc, ex2title, ex2desc, ex3title, ex3desc) {
+      e.stopPropagation();
+      document.getElementById('modal-title').textContent = title;
+      document.getElementById('modal-def').textContent = def;
+      const list = document.getElementById('modal-examples');
+      list.innerHTML = `
+        <li><strong>${ex1title}</strong><span>${ex1desc}</span></li>
+        <li><strong>${ex2title}</strong><span>${ex2desc}</span></li>
+        <li><strong>${ex3title}</strong><span>${ex3desc}</span></li>
+      `;
+      document.getElementById('modal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      document.getElementById('modal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function closeModalOutside(e) {
+      if (e.target === document.getElementById('modal')) closeModal();
+    }
+
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
   </script>
+
 </body>
 </html>
